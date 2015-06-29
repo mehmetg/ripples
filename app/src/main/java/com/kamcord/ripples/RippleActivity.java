@@ -90,21 +90,7 @@ public class RippleActivity extends FragmentActivity
 
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private SoundPool createNewSoundPool(){
-        AudioAttributes aAttr = new AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_GAME)
-                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                .build();
-        return (new SoundPool.Builder().setAudioAttributes(aAttr).build());
-    }
 
-    @SuppressWarnings("deprecation")
-    @TargetApi(Build.VERSION_CODES.FROYO)
-    protected SoundPool createOldSoundPool(){
-
-        return (new SoundPool(5,AudioManager.STREAM_MUSIC,0));
-    }
 
     @Override
     protected void onPause()
@@ -159,7 +145,21 @@ public class RippleActivity extends FragmentActivity
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
-    
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private SoundPool createNewSoundPool(){
+        AudioAttributes aAttr = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_GAME)
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .build();
+        return (new SoundPool.Builder().setAudioAttributes(aAttr).build());
+    }
+    @SuppressWarnings("deprecation")
+    @TargetApi(Build.VERSION_CODES.FROYO)
+    protected SoundPool createOldSoundPool(){
+
+        return (new SoundPool(5,AudioManager.STREAM_MUSIC,0));
+    }
     public void playSound() {
 		// Is the sound loaded does it already play?
 		if (loaded && !plays) {
@@ -167,7 +167,6 @@ public class RippleActivity extends FragmentActivity
 			plays = true;
 		}
 	}
-
     public void playLoop() {
 		// Is the sound loaded does it already play?
 		if (loaded && !plays) {
@@ -182,7 +181,6 @@ public class RippleActivity extends FragmentActivity
 			plays = false;
         }
 	}
-
 	public void stopSound() {
 		if (plays) {
 			soundPool.stop(soundID);
