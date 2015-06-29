@@ -1,32 +1,24 @@
 package com.kamcord.ripples;
 
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.text.SimpleDateFormat;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.kamcord.ripples.R.id;
 import com.kamcord.ripples.RippleView.GLVersion;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RippleActivity extends FragmentActivity
 {
@@ -40,7 +32,7 @@ public class RippleActivity extends FragmentActivity
     AudioManager audioManager;
     int counter;
 
-    boolean voiceOverlayed = false;
+
     Timer updateTimer;
 
     @SuppressLint("SimpleDateFormat")
@@ -52,11 +44,6 @@ public class RippleActivity extends FragmentActivity
     		dtf.setText(sdf.format(new Date()));
     	}
     };
-    
-    protected void initKamcord()
-    {
-        RippleLib.initKamcord(this);
-    }
     
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
@@ -109,8 +96,7 @@ public class RippleActivity extends FragmentActivity
                 .setUsage(AudioAttributes.USAGE_GAME)
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .build();
-        SoundPool sPool = new SoundPool.Builder().setAudioAttributes(aAttr).build();
-        return sPool;
+        return (new SoundPool.Builder().setAudioAttributes(aAttr).build());
     }
 
     @SuppressWarnings("deprecation")
