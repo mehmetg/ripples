@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kamcord.ripples"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!--
+    To all editing this file: an automation script opens this manifest file,
+    and uses it to construct the template manifest file for integration by taking
+    the sections that are labeled KEEP.  Add permissions / features / activities
+    required by Kamcord between those comments, and those only used by RippleTest
+    elsewhere in this file.
+    -->
+
+    <!-- KEEP permissions -->
+    <!-- END KEEP permissions -->
+
+    <!-- KEEP features -->
+    <!-- END KEEP features -->
+
+    <uses-feature android:glEsVersion="0x00020000" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:name="com.kamcord.ripples.RippleApplication"
+        android:icon="@drawable/app_icon"
+    	android:label="Ripple Demo"
+        android:allowBackup="false">
+        <activity
+            android:name="com.kamcord.ripples.RippleActivity"
+            android:allowBackup="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kamcordKakaoAppKey"/>
+
+    </application>
+</manifest>

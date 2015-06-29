@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_recording">Start Recording</string>
+    <string name="stop_recording">Stop Recording</string>
+    <string name="share">Share</string>
+    <string name="watch">Watch</string>
+    <string name="kamcordKakaoAppKey">15bb4de98feb5cd4c344dc65a9c69fdb</string>
+    
+    <string name="voiceoverlay_title">Overlay</string>
+    <string name="more_btnTitle">More</string>
+</resources>

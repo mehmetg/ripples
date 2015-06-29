@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- text color -->
+    <color name="default_textcolor">#56bd89</color>
+    
+    <!-- button color -->
+    <color name="button_default">#4fc297</color>
+    <color name="button_pressed">#353e44</color>
+    
+</resources>

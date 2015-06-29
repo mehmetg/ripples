@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/kamcord_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Features and Settings"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Enable/disable voice overlay:"
+            android:textColor="@color/default_textcolor" />
+
+        <Button
+            android:id="@+id/overlayBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_effect"
+            android:text="Voice Overlay"
+            android:textColor="@drawable/textcolor_selector" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Setting share targets:"
+            android:textColor="@color/default_textcolor" />
+
+        <TableLayout
+            android:id="@+id/shareTargetsTable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:stretchColumns="0,1,2" >
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/facebook_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_effect"
+                    android:text="FACEBOOK"
+                    android:textColor="@drawable/textcolor_selector" />
+
+                <Button
+                    android:id="@+id/tweet_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/button_effect"
+                    android:text="TWITTER"
+                    android:textColor="@drawable/textcolor_selector" />
+
+                <Button
+                    android:id="@+id/youtube_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/button_effect"
+                    android:text="YOUTUBE"
+                    android:textColor="@drawable/textcolor_selector" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/email_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_effect"
+                    android:text="EMAIL"
+                    android:textColor="@drawable/textcolor_selector" />
+
+                <Button
+                    android:id="@+id/nico_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/button_effect"
+                    android:text="NICONICO"
+                    android:textColor="@drawable/textcolor_selector" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Setting video metadata:"
+            android:textColor="@color/default_textcolor" />
+
+        <EditText
+            android:id="@+id/videotitle_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Video Title" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/facebook_editText"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:ems="10"
+            android:hint="Facebook Description"
+            android:visibility="gone" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/videodesc_editText"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:ems="10"
+            android:hint="Youtube Description"
+            android:inputType="textPostalAddress"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/youtubekeyword_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Youtube Keywords"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/video_tweet"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:hint="Tweet(140 words maxium)"
+            android:maxLength="140"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/emailsubject_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Subject"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/emailbody_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:hint="Email Body"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/niconicodesc_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:hint="Niconico Description"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Whitelist devices:"
+            android:textColor="@color/default_textcolor" />
+
+        <Button
+            android:id="@+id/whitelistBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_effect"
+            android:text="White List All"
+            android:textColor="@drawable/textcolor_selector" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Blacklist devices:"
+            android:textColor="@color/default_textcolor" />
+
+        <Button
+            android:id="@+id/blacklistBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_effect"
+            android:text="Black List All"
+            android:textColor="@drawable/textcolor_selector" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_effect"
+            android:text="Save"
+            android:textColor="@drawable/textcolor_selector" />
+    </LinearLayout>
+
+</ScrollView>
