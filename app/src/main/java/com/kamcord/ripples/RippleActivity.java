@@ -8,6 +8,7 @@ import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -30,6 +31,7 @@ public class RippleActivity extends FragmentActivity
     boolean plays = false, loaded = false;
     float actVolume, maxVolume, volume;
     AudioManager audioManager;
+    PowerManager powerManager;
     int counter;
 
 
@@ -87,7 +89,7 @@ public class RippleActivity extends FragmentActivity
             }
         });
 
-
+        powerManager = (PowerManager) getSystemService(POWER_SERVICE);
     }
 
 
@@ -112,14 +114,15 @@ public class RippleActivity extends FragmentActivity
     	mView.onResume();
     	updateTimer = new Timer();
     	updateTimer.schedule(
-    			new TimerTask(){
-    				public void run(){
-    					TextView dtf = ((TextView)findViewById(R.id.dateTimeField));
-    					dtf.post(setDateTime);
-    					}
-    				}, 0, 500);
-
-        soundID = soundPool.load(this, R.raw.tone, 1);
+                new TimerTask() {
+                    public void run() {
+                        TextView dtf = ((TextView) findViewById(R.id.dateTimeField));
+                        dtf.post(setDateTime);
+                    }
+                }, 0, 500);
+        if(!plays && isScreenOn()) {
+            soundID = soundPool.load(this, R.raw.tone, 1);
+        }
     }
 
    @Override
@@ -160,14 +163,14 @@ public class RippleActivity extends FragmentActivity
 
         return (new SoundPool(5,AudioManager.STREAM_MUSIC,0));
     }
-    public void playSound() {
+    protected void playSound() {
 		// Is the sound loaded does it already play?
 		if (loaded && !plays) {
 			soundPool.play(soundID, volume, volume, 1, 0, 1f);
 			plays = true;
 		}
 	}
-    public void playLoop() {
+    protected void playLoop() {
 		// Is the sound loaded does it already play?
 		if (loaded && !plays) {
 			// the sound will play for ever if we put the loop parameter -1
@@ -175,16 +178,26 @@ public class RippleActivity extends FragmentActivity
 			plays = true;
 		}
 	}
-    public void pauseSound() {
+    protected void pauseSound() {
 		if (plays) {
 			soundPool.pause(soundID);
 			plays = false;
         }
 	}
-	public void stopSound() {
+	protected void stopSound() {
 		if (plays) {
 			soundPool.stop(soundID);
 			plays = false;
 		}
 	}
+
+    @SuppressWarnings("deprecation")
+    protected boolean isScreenOn(){
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT_WATCH) {
+            return powerManager.isScreenOn();
+        } else {
+            return powerManager.isInteractive();
+        }
+    }
+
 }
