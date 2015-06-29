@@ -41,7 +41,5 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kamcordKakaoAppKey"/>
-
     </application>
 </manifest>
